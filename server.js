@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const ASSISTANT_ID = process.env.ASSISTANT_ID;
-
+console.log(ASSISTANT_ID)
 const apiKey = process.env.OPENAI_API_KEY;
 
 
