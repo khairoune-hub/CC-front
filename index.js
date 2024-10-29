@@ -1,6 +1,13 @@
 const md = window.markdownit();
 let threadId = null;
-
+window.addEventListener('load', () => {
+    const spinner = document.getElementById('spinner');
+    const minimumLoadingTime = 1000;
+    
+    setTimeout(() => {
+        spinner.style.display = 'none';
+    }, minimumLoadingTime);
+});
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
