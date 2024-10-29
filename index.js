@@ -162,7 +162,7 @@ function showTypingIndicator() {
     const typingIndicator = document.getElementById('typing-indicator');
     if (!typingIndicator) return;
 
-    typingIndicator.style.display = 'flex';
+    typingIndicator.style.display = 'block';
     typingIndicator.scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -199,7 +199,7 @@ function cleanup() {
     const infoButton = document.getElementById('info');
 
     userInput?.removeEventListener('keypress', handleKeyPress);
-    // userInput?.removeEventListener('input', adjustTextareaHeight);
+    userInput?.removeEventListener('input', adjustTextareaHeight);
     sendButton?.removeEventListener('click', handleSendMessage);
     infoButton?.removeEventListener('click', showInfo);
 }
