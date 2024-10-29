@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
-    adjustTextareaHeight(); // Initial height adjustment
+    // adjustTextareaHeight(); // Initial height adjustment
 });
 
 // Set up all event listeners
