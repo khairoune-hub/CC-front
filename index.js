@@ -81,7 +81,7 @@ async function sendMessage() {
     
     addMessage(message, true);  // Display user's message
     userInput.value = '';       // Clear input field
-    showTypingIndicator();
+   
 
     try {
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
@@ -91,7 +91,7 @@ async function sendMessage() {
         });
 
         const data = await response.json();
-        
+         showTypingIndicator();
         if (response.ok) {
             addMessage(data.message, false);  // Display assistant's response
         } else {
