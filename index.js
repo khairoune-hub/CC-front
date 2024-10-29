@@ -1,6 +1,8 @@
+// Initialize markdown-it
 const md = window.markdownit();
-let threadId = null;
 
+// Global thread ID
+let threadId = null;
 window.addEventListener('load', () => {
     const spinner = document.getElementById('spinner');
     const minimumLoadingTime = 1000;
@@ -10,46 +12,81 @@ window.addEventListener('load', () => {
     }, minimumLoadingTime);
 });
 
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
+    adjustTextareaHeight(); // Initial height adjustment
 });
 
-// Set up event listeners for the UI
+// Set up all event listeners
 function setupEventListeners() {
-    document.getElementById('send-button').addEventListener('click', sendMessage);
-    document.getElementById('user-input').addEventListener('keypress', handleKeyPress);
-    document.getElementById('info').addEventListener('click', showInfo);
+    const sendButton = document.getElementById('send-button');
+    const userInput = document.getElementById('user-input');
+    const infoButton = document.getElementById('info');
+
+    sendButton?.addEventListener('click', handleSendMessage);
+    userInput?.addEventListener('keypress', handleKeyPress);
+    userInput?.addEventListener('input', adjustTextareaHeight);
+    infoButton?.addEventListener('click', showInfo);
+
+    // Prevent form submission on Enter if textarea is empty
+    userInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey && !userInput.value.trim()) {
+            e.preventDefault();
+        }
+    });
 }
 
-// Handle Enter key for sending messages
+// Adjust textarea height based on content
+// function adjustTextareaHeight() {
+//     const textarea = document.getElementById('user-input');
+//     if (!textarea) return;
+
+//     textarea.style.height = 'auto';
+//     textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+// }
+
+// Handle Enter key press
 function handleKeyPress(e) {
     if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
-        sendMessage();
+        handleSendMessage();
     }
 }
 
-// Display information about the assistant
+// Handle send message button click
+function handleSendMessage() {
+    const userInput = document.getElementById('user-input');
+    if (!userInput) return;
+
+    const message = userInput.value.trim();
+    if (message) {
+        sendMessage(message);
+    }
+}
+
+// Show information about the assistant
 function showInfo() {
     alert('BCOS Content Creation Assistant - Ready to help you generate and organize content! By: Moussa KHAIROUNE');
 }
 
-// Initialize a new thread by calling the Worker endpoint
+// Initialize a new thread
 async function initializeThread() {
     try {
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/new-thread', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         });
-        const data = await response.json();
         
-        if (response.ok) {
-            threadId = data.threadId;
-            console.log('Thread initialized:', threadId);
-        } else {
-            throw new Error(data.error || 'Failed to initialize thread');
+        if (!response.ok) {
+            throw new Error('Failed to initialize thread');
         }
+
+        const data = await response.json();
+        threadId = data.threadId;
+        console.log('Thread initialized:', threadId);
+        
     } catch (error) {
         console.error('Error initializing thread:', error);
         addMessage('Failed to initialize chat. Please refresh the page.', false);
@@ -67,27 +104,35 @@ function addMessage(message, isUser = false) {
         const isArabic = /[\u0600-\u06FF]/.test(message);
         messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
         message = md.render(message);
+    } else {
+        messageElement.textContent = message;
     }
     
-    messageElement.innerHTML = message;
-    chatMessages.appendChild(messageElement);
-    chatMessages.scrollTop = chatMessages.scrollHeight;  // Scroll to the latest message
+    // Insert message before the typing indicator
+    const typingIndicator = document.getElementById('typing-indicator');
+    chatMessages.insertBefore(messageElement, typingIndicator);
+    
+    // Scroll to the new message
+    messageElement.scrollIntoView({ behavior: 'smooth' });
 }
 
-// Send the user's message to the assistant and display the response
+// Send message to the assistant
 async function sendMessage() {
     const userInput = document.getElementById('user-input');
     const message = userInput.value.trim();
     
     if (!message || !threadId) return;
     
-    addMessage(message, true);  // Display user's message
-    userInput.value = '';       // Clear input field
+    // Display user's message
+    addMessage(message, true);
     
-    // Add small delay to ensure user message renders first
-    await new Promise(resolve => setTimeout(resolve, 100));
-    showTypingIndicator();      // Show typing indicator after delay
-
+    // Clear input and reset height
+    userInput.value = '';
+    // adjustTextareaHeight();
+    
+    // Show typing indicator immediately after user's message
+    showTypingIndicator();
+    
     try {
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
             method: 'POST',
@@ -98,23 +143,66 @@ async function sendMessage() {
         const data = await response.json();
         
         if (response.ok) {
-            addMessage(data.message, false);  // Display assistant's response
+            // Hide typing indicator before showing response
+            hideTypingIndicator();
+            // Display assistant's response
+            addMessage(data.message, false);
         } else {
             throw new Error(data.error || 'Failed to get response');
         }
     } catch (error) {
         console.error('Error:', error);
-        addMessage('Sorry, I encountered an error. Please try again.', false);
-    } finally {
         hideTypingIndicator();
+        addMessage('Sorry, I encountered an error. Please try again.', false);
     }
 }
 
-// Show and hide typing indicator for the assistant
+// Show typing indicator
 function showTypingIndicator() {
-    document.getElementById('typing-indicator').style.display = 'block';
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (!typingIndicator) return;
+
+    typingIndicator.style.display = 'flex';
+    typingIndicator.scrollIntoView({ behavior: 'smooth' });
 }
 
+// Hide typing indicator
 function hideTypingIndicator() {
-    document.getElementById('typing-indicator').style.display = 'none';
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (!typingIndicator) return;
+
+    typingIndicator.style.display = 'none';
 }
+
+// Disable send button when no input
+function updateSendButtonState() {
+    const sendButton = document.getElementById('send-button');
+    const userInput = document.getElementById('user-input');
+    
+    if (sendButton && userInput) {
+        sendButton.disabled = !userInput.value.trim();
+    }
+}
+
+// Error handler for fetch requests
+function handleFetchError(error) {
+    console.error('Network error:', error);
+    hideTypingIndicator();
+    addMessage('Network error occurred. Please check your connection and try again.', false);
+}
+
+// Clean up function for when component unmounts or page closes
+function cleanup() {
+    // Remove event listeners if needed
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+    const infoButton = document.getElementById('info');
+
+    userInput?.removeEventListener('keypress', handleKeyPress);
+    // userInput?.removeEventListener('input', adjustTextareaHeight);
+    sendButton?.removeEventListener('click', handleSendMessage);
+    infoButton?.removeEventListener('click', showInfo);
+}
+
+// Handle window unload
+window.addEventListener('unload', cleanup);
