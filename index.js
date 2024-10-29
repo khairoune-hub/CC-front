@@ -162,7 +162,7 @@ function showTypingIndicator() {
     const typingIndicator = document.getElementById('typing-indicator');
     if (!typingIndicator) return;
 
-    typingIndicator.style.display = 'flex';
+    typingIndicator.style.display = 'block';
     typingIndicator.scrollIntoView({ behavior: 'smooth' });
 }
 
