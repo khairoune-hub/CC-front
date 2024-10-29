@@ -1,5 +1,6 @@
 const md = window.markdownit();
 let threadId = null;
+
 window.addEventListener('load', () => {
     const spinner = document.getElementById('spinner');
     const minimumLoadingTime = 1000;
@@ -8,6 +9,7 @@ window.addEventListener('load', () => {
         spinner.style.display = 'none';
     }, minimumLoadingTime);
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
@@ -81,7 +83,7 @@ async function sendMessage() {
     
     addMessage(message, true);  // Display user's message
     userInput.value = '';       // Clear input field
-    showTypingIndicator();
+    showTypingIndicator();      // Show typing indicator AFTER user message is displayed
 
     try {
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
@@ -112,4 +114,4 @@ function showTypingIndicator() {
 
 function hideTypingIndicator() {
     document.getElementById('typing-indicator').style.display = 'none';
- }   
+}
