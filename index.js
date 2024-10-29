@@ -39,13 +39,13 @@ function setupEventListeners() {
 }
 
 // Adjust textarea height based on content
-function adjustTextareaHeight() {
-    const textarea = document.getElementById('user-input');
-    if (!textarea) return;
+// function adjustTextareaHeight() {
+//     const textarea = document.getElementById('user-input');
+//     if (!textarea) return;
 
-    textarea.style.height = 'auto';
-    textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
-}
+//     textarea.style.height = 'auto';
+//     textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
+// }
 
 // Handle Enter key press
 function handleKeyPress(e) {
@@ -128,7 +128,7 @@ async function sendMessage() {
     
     // Clear input and reset height
     userInput.value = '';
-    adjustTextareaHeight();
+    // adjustTextareaHeight();
     
     // Show typing indicator immediately after user's message
     showTypingIndicator();
