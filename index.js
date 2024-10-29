@@ -112,3 +112,4 @@ function showTypingIndicator() {
 
 function hideTypingIndicator() {
     document.getElementById('typing-indicator').style.display = 'none';
+ }   
