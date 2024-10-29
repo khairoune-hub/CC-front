@@ -57,6 +57,11 @@ async function initializeThread() {
 // Add a message to the chat UI
 function addMessage(message, isUser = false) {
     const chatMessages = document.getElementById('chat-messages');
+    
+    const existingTypingIndicator = document.querySelector('.typing-indicator');
+    if (existingTypingIndicator) {
+        existingTypingIndicator.remove();
+    }
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', isUser ? 'user-message' : 'bot-message');
     
@@ -70,6 +75,11 @@ function addMessage(message, isUser = false) {
     messageElement.innerHTML = message;
     chatMessages.appendChild(messageElement);
     chatMessages.scrollTop = chatMessages.scrollHeight;  // Scroll to the latest message
+
+    const typingIndicator = document.createElement('div');
+    typingIndicator.classList.add('typing-indicator');
+    typingIndicator.textContent = 'Assistant is typing...';
+    chatMessages.appendChild(typingIndicator);
 }
 
 // Send the user's message to the assistant and display the response
@@ -82,7 +92,7 @@ async function sendMessage() {
     addMessage(message, true);  // Display user's message
     userInput.value = '';       // Clear input field
    
-    showTypingIndicator();
+   
     try {
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
             method: 'POST',
@@ -107,9 +117,11 @@ async function sendMessage() {
 
 // Show and hide typing indicator for the assistant
 function showTypingIndicator() {
-    document.getElementById('typing-indicator').style.display = 'block';
+    const typingIndicator = document.querySelector('.typing-indicator');
+    if (typingIndicator) typingIndicator.style.display = 'block';
 }
 
 function hideTypingIndicator() {
-    document.getElementById('typing-indicator').style.display = 'none';
+    const typingIndicator = document.querySelector('.typing-indicator');
+    if (typingIndicator) typingIndicator.style.display = 'none';
 }
