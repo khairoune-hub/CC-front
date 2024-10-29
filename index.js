@@ -27,7 +27,7 @@ function setupEventListeners() {
 
     sendButton?.addEventListener('click', handleSendMessage);
     userInput?.addEventListener('keypress', handleKeyPress);
-    userInput?.addEventListener('input', adjustTextareaHeight);
+    // userInput?.addEventListener('input', adjustTextareaHeight);
     infoButton?.addEventListener('click', showInfo);
 
     // Prevent form submission on Enter if textarea is empty
@@ -103,7 +103,7 @@ function addMessage(message, isUser = false) {
     if (!isUser) {
         const isArabic = /[\u0600-\u06FF]/.test(message);
         messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-        message = md.render(message);
+        // message = md.render(message);
     } else {
         messageElement.textContent = message;
     }
