@@ -205,4 +205,4 @@ function cleanup() {
 }
 
 // Handle window unload
-window.addEventListener('unload', cleanup);
+// window.addEventListener('unload', cleanup);
