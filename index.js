@@ -83,7 +83,10 @@ async function sendMessage() {
     
     addMessage(message, true);  // Display user's message
     userInput.value = '';       // Clear input field
-    showTypingIndicator();      // Show typing indicator AFTER user message is displayed
+    
+    // Add small delay to ensure user message renders first
+    await new Promise(resolve => setTimeout(resolve, 100));
+    showTypingIndicator();      // Show typing indicator after delay
 
     try {
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
