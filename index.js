@@ -1,5 +1,5 @@
 // Initialize markdown-it
-// const md = window.markdownit();
+const md = window.markdownit();
 
 // Global thread ID
 let threadId = null;
@@ -109,6 +109,7 @@ function addMessage(message, isUser = false) {
         const isArabic = /[\u0600-\u06FF]/.test(message);
         messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
         messageElement.textContent = message; // Add this line
+           message = md.render(message);
     } else {
         messageElement.textContent = message;
     }
