@@ -1,5 +1,5 @@
 // Initialize markdown-it
-const md = window.markdownit();
+// const md = window.markdownit();
 
 // Global thread ID
 let threadId = null;
@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
-    adjustTextareaHeight(); // Initial height adjustment
+    // adjustTextareaHeight(); // Initial height adjustment
 });
 
 // Set up all event listeners
@@ -27,7 +27,7 @@ function setupEventListeners() {
 
     sendButton?.addEventListener('click', handleSendMessage);
     userInput?.addEventListener('keypress', handleKeyPress);
-    userInput?.addEventListener('input', adjustTextareaHeight);
+    // userInput?.addEventListener('input', adjustTextareaHeight);
     infoButton?.addEventListener('click', showInfo);
 
     // Prevent form submission on Enter if textarea is empty
