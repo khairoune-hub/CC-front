@@ -95,32 +95,32 @@ async function initializeThread() {
 
 // Add a message to the chat UI
 function addMessage(message, isUser = false) {
-    console.log('Adding message:', message); // Debug log
-    console.log('Is user message:', isUser); // Debug log
+    console.log('Adding message:', message); 
+    console.log('Is user message:', isUser); 
     
     const chatMessages = document.getElementById('chat-messages');
-    console.log('Chat messages container:', chatMessages); // Debug log
+    console.log('Chat messages container:', chatMessages); 
     
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', isUser ? 'user-message' : 'bot-message');
     
-    // Handle Arabic text alignment and Markdown rendering
+    // Handle Arabic text alignment and Markdown/HTML rendering
+    const isArabic = /[\u0600-\u06FF]/.test(message);
+    messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+
     if (!isUser) {
-        const isArabic = /[\u0600-\u06FF]/.test(message);
-        messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-        messageElement.innerHTML = message; // Add this line
-           message = md.render(message);
+        // For bot messages, render markdown and set as HTML
+        const renderedMessage = md.render(message);
+        messageElement.innerHTML = renderedMessage;
     } else {
-        const isArabic = /[\u0600-\u06FF]/.test(message);
-        messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+        // For user messages, just set as HTML
         messageElement.innerHTML = message;
-        message = md.render(message);
     }
     
-    console.log('Message element created:', messageElement); // Debug log
+    console.log('Message element created:', messageElement);
     
     const typingIndicator = document.getElementById('typing-indicator');
-    console.log('Typing indicator:', typingIndicator); // Debug log
+    console.log('Typing indicator:', typingIndicator);
     
     chatMessages.insertBefore(messageElement, typingIndicator);
     
