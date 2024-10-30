@@ -16,7 +16,6 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
-    // adjustTextareaHeight(); // Initial height adjustment
 });
 
 // Set up all event listeners
@@ -27,7 +26,6 @@ function setupEventListeners() {
 
     sendButton?.addEventListener('click', handleSendMessage);
     userInput?.addEventListener('keypress', handleKeyPress);
-    // userInput?.addEventListener('input', adjustTextareaHeight);
     infoButton?.addEventListener('click', showInfo);
 
     // Prevent form submission on Enter if textarea is empty
@@ -37,16 +35,6 @@ function setupEventListeners() {
         }
     });
 }
-
-// Adjust textarea height based on content
-// function adjustTextareaHeight() {
-//     const textarea = document.getElementById('user-input');
-//     if (!textarea) return;
-
-//     textarea.style.height = 'auto';
-//     textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
-// }
-
 // Handle Enter key press
 function handleKeyPress(e) {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -140,7 +128,6 @@ async function sendMessage() {
     
     // Clear input and reset height
     userInput.value = '';
-    // adjustTextareaHeight();
     
     // Show typing indicator immediately after user's message
     showTypingIndicator();
@@ -218,4 +205,4 @@ function cleanup() {
 }
 
 // Handle window unload
-// window.addEventListener('unload', cleanup);
+window.addEventListener('unload', cleanup);
