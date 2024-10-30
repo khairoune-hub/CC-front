@@ -108,10 +108,13 @@ function addMessage(message, isUser = false) {
     if (!isUser) {
         const isArabic = /[\u0600-\u06FF]/.test(message);
         messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
-        messageElement.textContent = message; // Add this line
+        messageElement.innerHTML = message; // Add this line
            message = md.render(message);
     } else {
-        messageElement.textContent = message;
+        const isArabic = /[\u0600-\u06FF]/.test(message);
+        messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
+        messageElement.innerHTML = message;
+        message = md.render(message);
     }
     
     console.log('Message element created:', messageElement); // Debug log
