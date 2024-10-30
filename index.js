@@ -110,7 +110,7 @@ function addMessage(message, isUser = false) {
     
     // Insert message before the typing indicator
     const typingIndicator = document.getElementById('typing-indicator');
-    chatMessages.insertBefore(messageElement, typingIndicator);
+    chatMessages.insertBefore(message, typingIndicator);
     
     // Scroll to the new message
     messageElement.scrollIntoView({ behavior: 'smooth' });
