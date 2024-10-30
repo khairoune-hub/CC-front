@@ -146,7 +146,7 @@ async function sendMessage() {
             // Hide typing indicator before showing response
             hideTypingIndicator();
             // Display assistant's response
-            console.log(message);
+            console.log(data);
             addMessage(data.message, false);
         } else {
             throw new Error(data.error || 'Failed to get response');
