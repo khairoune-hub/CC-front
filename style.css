@@ -3,9 +3,15 @@
         margin: 0;
         padding: 0;
     }
-    head{
-        background-color: transparent;
-    }
+   
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #d7dae323; /* Your brand color */
+        padding: 35px 20px;
+
+      }
     body {
         font-family: 'Cairo', sans-serif;
         background: linear-gradient(135deg, #fcfcfc, #e6e6e6);
@@ -15,9 +21,11 @@
     }
     
     .logo {
+        display: flex;
+        align-items: center;
         width: 100px;
         height: auto;
-        margin-top: 20px;
+        margin-top: 5px;
         margin-left: 30px;
         position: absolute;
         /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
@@ -27,24 +35,21 @@
     }
     .info-button::before { content: "\1f6c8"; }
     .info-button {
-        filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.264));  
-        text-decoration: none;
-        background: none;
-        color: #91be3f;
-        font-size: 3rem;
-        /* font-weight: bold; */
-        position: fixed;  
-        top: 1px;        
-        right: 1px;      
-        z-index: 1000;    
-        padding: 10px 20px;
+        right: 0;
         display: flex;
-        justify-content: center;
         align-items: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
+        width: 100px;
+        height: auto;
+        padding: 8px 16px;
         position: absolute;
-        margin-left: 890px; 
+        text-decoration: none;
+        font-size: 35px;
+        /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
+        filter: drop-shadow(5px 5px 10px rgba(97, 96, 96, 0.5));  
+        background-color: transparent;
+        /* position: absolute; */
+        /* margin-left: 890px;  */
+        color: #91be3f;
         border: none;
     }
     .info-button:hover {
@@ -55,7 +60,7 @@
         width: 100%; /* Set the desired width */
         height: 400px;
         max-width: 1000px;
-        margin: 2rem auto;
+        margin: 1rem auto;
         background: #253b74;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.582);
