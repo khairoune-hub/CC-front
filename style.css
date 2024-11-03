@@ -8,7 +8,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #d7dae323; /* Your brand color */
+        background-color: transparent; /* Your brand color */
         padding: 35px 20px;
 
       }
