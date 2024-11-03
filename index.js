@@ -56,7 +56,7 @@ function handleSendMessage() {
 
 // Show information about the assistant
 function showInfo() {
-    alert('BCOS Content Creation Assistant - Ready to help you generate and organize content! By: Moussa KHAIROUNE');
+    // alert('BCOS Content Creation Assistant - Ready to help you generate and organize content! By: Moussa KHAIROUNE');
 }
 
 // Initialize a new thread
