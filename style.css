@@ -19,13 +19,14 @@
         display: flex;
         flex-direction: column;
     }
+  
     
     .logo {
         display: flex;
         align-items: center;
         width: 100px;
         height: auto;
-        margin-top: 5px;
+        margin-top: -17px;
         left: 2%;
         position: absolute;
         /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); */
@@ -35,12 +36,12 @@
     }
     .info-button::before { content: "\1f6c8"; }
     .info-button {
-        right: 0;
+        right: 0%;
         display: flex;
         align-items: center;
         width: 100px;
         height: auto;
-        padding: 8px 16px;
+        /* padding: 8px 16px; */
         position: absolute;
         text-decoration: none;
         font-size: 35px;
@@ -60,7 +61,7 @@
         width: 100%; /* Set the desired width */
         height: 400px;
         max-width: 1000px;
-        margin: 1rem auto;
+        margin: 0.5rem auto;
         background: #253b74;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.582);
