@@ -28,7 +28,7 @@
     .info-button::before { content: "\1f6c8"; }
     .info-button {
         filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.264));  
-
+        text-decoration: none;
         background: none;
         color: #91be3f;
         font-size: 3rem;
