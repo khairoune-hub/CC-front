@@ -9,12 +9,12 @@ let userContext = ''; // Declare userContext as a variable
 
 function selectPlatform(platform) {
     // Remove selected class from all buttons
-    document.querySelectorAll('.platform-btn').forEach(btn => {
+    document.querySelectorAll('.platform-option').forEach(btn => {
         btn.classList.remove('selected');
     });
 
     // Add selected class to clicked button
-    const selectedBtn = document.querySelector(`.platform-btn[onclick*="${platform}"]`);
+    const selectedBtn = document.querySelector(`.platform-option[onclick*="${platform}"]`);
     if (selectedBtn) {
         selectedBtn.classList.add('selected');
     }
@@ -76,6 +76,11 @@ function handleKeyPress(e) {
 
 // Handle send message button click
 function handleSendMessage() {
+    
+    if (!selectedPlatform) {
+        alert('Please select a platform before sending a message.');
+        return; // Stop further execution
+    }
     const userInput = document.getElementById('user-input');
     if (!userInput) return;
 
