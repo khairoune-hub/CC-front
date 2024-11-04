@@ -19,6 +19,16 @@
         </a>
         <a href="about.html" class="info-button" id="info"> &#9432</a>
     </nav>
+    <div class="platform-sidebar">
+        <div class="platform-trigger"></div>
+        <div class="platform-options">
+            <button class="platform-option" onclick="selectPlatform('instagram')">Instagram</button>
+            <button class="platform-option" onclick="selectPlatform('telegram')">Telegram</button>
+            <button class="platform-option" onclick="selectPlatform('facebook')">Facebook</button>
+            <button class="platform-option" onclick="selectPlatform('linkedin')">LinkedIn</button>
+            <button class="platform-option" onclick="selectPlatform('email')">Email</button>
+        </div>
+    </div>
     <div class="glowing-bg"></div>
     <div class="chat-container">
         <div class="chat-header">
@@ -26,14 +36,7 @@
         </div>
         <div class="chat-messages" id="chat-messages" >
             <div class="message bot-message" dir="rtl">مرحباً! كيف يمكنني مساعدتك في إنشاء أو تحسين محتوى وفقًا لإرشادات BCOS؟</div>
-            <div class="message bot-message" dir="rtl">إبدأ باختيار المنصة التي تريد أن تنشئ المحتوى من أجلها : 
-                <div class="platform-buttons" dir="rtl">
-                  <button class="platform-btn" onclick="selectPlatform('instagram')">Instagram</button>
-                  <button class="platform-btn" onclick="selectPlatform('telegram')">Telegram</button>
-                  <button class="platform-btn" onclick="selectPlatform('facebook')">Facebook</button>
-                  <button class="platform-btn" onclick="selectPlatform('linkedin')">LinkedIn</button>
-                  <button class="platform-btn" onclick="selectPlatform('email')">Email</button></div>
-            </div>
+         
             <div class="typing-indicator" id="typing-indicator" dir="ltr">
                 <span class="dot"></span>
                 <span class="dot"></span>
