@@ -332,9 +332,9 @@ th, td {
         padding-top: 10px; /* Height of navbar + some padding */
     }
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    
+        /* justify-content: space-between; */
+        /* align-items: center; */
         background-color: transparent; /* Your brand color */
         padding: 35px 20px;
         background-color: #ffffff;
