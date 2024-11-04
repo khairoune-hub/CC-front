@@ -1,8 +1,38 @@
 // Initialize markdown-it
 const md = window.markdownit();
 
-// Global thread ID
+// Global variables
 let threadId = null;
+
+let selectedPlatform = null;
+let userContext = ''; // Declare userContext as a variable
+
+function selectPlatform(platform) {
+    // Remove selected class from all buttons
+    document.querySelectorAll('.platform-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+
+    // Add selected class to clicked button
+    const selectedBtn = document.querySelector(`.platform-btn[onclick*="${platform}"]`);
+    if (selectedBtn) {
+        selectedBtn.classList.add('selected');
+    }
+
+    // Update the selectedPlatform variable
+    selectedPlatform = platform;
+    console.log('Selected platform:', selectedPlatform);
+
+    // Update user context
+    updateUserContext();
+}
+
+function updateUserContext() {
+    if (selectedPlatform) {
+        userContext = `The user wants to generate the content for ${selectedPlatform}.`;       console.log(userContext); // Log to console
+    }
+}
+
 window.addEventListener('load', () => {
     const spinner = document.getElementById('spinner');
     const minimumLoadingTime = 1000;
@@ -55,9 +85,9 @@ function handleSendMessage() {
 }
 
 // Show information about the assistant
-function showInfo() {
-    // alert('BCOS Content Creation Assistant - Ready to help you generate and organize content! By: Moussa KHAIROUNE');
-}
+// function showInfo() {
+//     alert('BCOS Content Creation Assistant - Ready to help you generate and organize content! By: Moussa KHAIROUNE');
+// }
 
 // Initialize a new thread
 async function initializeThread() {
@@ -83,8 +113,8 @@ async function initializeThread() {
 
 // Add a message to the chat UI
 function addMessage(message, isUser = false) {
-    console.log('Adding message:', message); 
-    console.log('Is user message:', isUser); 
+    // console.log('Adding message:', message); 
+    // console.log('Is user message:', isUser); 
     
     const chatMessages = document.getElementById('chat-messages');
     console.log('Chat messages container:', chatMessages); 
@@ -129,23 +159,25 @@ async function sendMessage() {
     // Clear input and reset height
     userInput.value = '';
     
-    // Show typing indicator immediately after user's message
+    // Show typing indicator
     showTypingIndicator();
     
     try {
+        console.log(userContext)
         const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message, threadId })
+            body: JSON.stringify({ 
+                message, 
+                threadId,
+                context: userContext // Add context to the request
+            })
         });
 
         const data = await response.json();
         
         if (response.ok) {
-            // Hide typing indicator before showing response
             hideTypingIndicator();
-            // Display assistant's response
-            console.log(data);
             addMessage(data.message, false);
         } else {
             throw new Error(data.error || 'Failed to get response');
