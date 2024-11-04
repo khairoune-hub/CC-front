@@ -29,7 +29,8 @@ function selectPlatform(platform) {
 
 function updateUserContext() {
     if (selectedPlatform) {
-        userContext = `The user wants to generate the content for ${selectedPlatform}.`;       console.log(userContext); // Log to console
+        userContext = `The user wants to generate the content for ${selectedPlatform},talk in arabic.`;    
+        console.log(userContext); // Log to console
     }
 }
 
