@@ -103,10 +103,10 @@ body {
 }
 .bot-message {
     background: #91be3f;
-    white-space: pre-line; 
+    /* white-space: pre-line; */
     border-radius: 20px 20px 20px 0;
     /* margin-right: auto; */
-    align-self: flex-start; 
+    align-self: flex-start;
 }
 .input-area {
     display: flex;
@@ -431,6 +431,14 @@ th, td {
         white-space: pre-line;
         /* border-radius: 20px 20px 20px 0; */
         /* margin-right: auto; */
-         align-self: flex-start; 
+        align-self: flex-start;
+    }
+    .user-message {
+        background: rgba(54, 162, 235, 0.8);
+        margin-left: auto;
+        padding: auto;
+        white-space: pre-line;
+        border-radius: 20px 20px 0 20px;
+        align-self: flex-end;
     }
     }
