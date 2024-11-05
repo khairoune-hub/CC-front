@@ -321,25 +321,67 @@ th, td {
     }
     .chat-header {
         display: none;
-    }
-    .chat-container {
-        margin: 0;
-        height: 100vh;
-        max-width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        background: transparent;
-        padding-top: 10px; /* Height of navbar + some padding */
-    }
-    .navbar {
-    
-        /* justify-content: space-between; */
-        /* align-items: center; */
-        background-color: transparent; /* Your brand color */
-        padding: 35px 20px;
-        background-color: #ffffff;
-    
-    } .platform-sidebar {
+        }
+  /* First, make sure the navbar stays fixed */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e6e6e6;
+    padding: 35px 20px;
+    position: fixed;  /* Make navbar fixed */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: auto;
+    margin-top: -17px;
+    left: 2%;
+    position: fixed;  /* Make logo fixed */
+    filter: drop-shadow(5px 5px 10px rgba(97, 96, 96, 0.5));  
+    background-color: transparent;
+    z-index: 1000;
+}
+
+.info-button {
+    right: 3%;
+    display: flex;
+    align-items: center;
+    height: auto;
+    position: fixed;  /* Make info button fixed */
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bolder;
+    background-color: transparent;
+    color: #91be3f;
+    border: none;
+    z-index: 1000;
+}
+
+/* Adjust chat container to account for fixed navbar */
+.chat-container {
+    width: 100%;
+    height: 400px;
+    max-width: 1000px;
+    margin: 100px auto 0.5rem auto; /* Added top margin to account for navbar */
+    background: #253b74;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.582);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-grow: 1;
+    transition: all 0.3s ease;  
+    position: relative;
+    z-index: 1;
+}
+ .platform-sidebar {
         left: 50%;
         top: -300px;
         transform: translateX(-50%);
