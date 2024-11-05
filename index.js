@@ -136,16 +136,11 @@ async function initializeThread() {
 
 // Add a message to the chat UI
 function addMessage(message, isUser = false) {
-    // console.log('Adding message:', message); 
-    // console.log('Is user message:', isUser); 
-    
     const chatMessages = document.getElementById('chat-messages');
-    console.log('Chat messages container:', chatMessages); 
-    
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', isUser ? 'user-message' : 'bot-message');
     
-    // Handle Arabic text alignment and Markdown/HTML rendering
+    // Handle Arabic text detection and direction
     const isArabic = /[\u0600-\u06FF]/.test(message);
     messageElement.setAttribute('dir', isArabic ? 'rtl' : 'ltr');
 
@@ -154,20 +149,27 @@ function addMessage(message, isUser = false) {
         const renderedMessage = md.render(message);
         messageElement.innerHTML = renderedMessage;
     } else {
-        // For user messages, just set as HTML
+        // For user messages, set as HTML and handle direction
         messageElement.innerHTML = message;
+        // Always keep user messages on the right side
+        messageElement.style.marginLeft = 'auto';
+        messageElement.style.marginRight = '0';
     }
     
-    console.log('Message element created:', messageElement);
-    
     const typingIndicator = document.getElementById('typing-indicator');
-    console.log('Typing indicator:', typingIndicator);
+    
+    // Clear floats if needed
+    const clearDiv = document.createElement('div');
+    clearDiv.style.clear = 'both';
     
     chatMessages.insertBefore(messageElement, typingIndicator);
+    chatMessages.insertBefore(clearDiv, typingIndicator);
     
     // Scroll to the new message
     messageElement.scrollIntoView({ behavior: 'smooth' });
 }
+
+   
 
 // Send message to the assistant
 async function sendMessage() {
