@@ -30,19 +30,19 @@ function selectPlatform(platform) {
 function updateUserContext() {
     switch(selectedPlatform) {
         case 'instagram':
-            userContext = 'Create content optimized for Instagram with emphasis on visual appeal and engagement. Consider using relevant hashtags and keeping captions concise yet engaging mix between the arabic and the algerian accent.';
+            userContext = 'قم بإنشاء محتوى مُحسّن لمنصة إنستغرام مع التركيز على الجاذبية البصرية والتفاعل. يُفضّل استخدام الهاشتاغات المناسبة والحفاظ على العبارات مختصرة لكنها جذابة، مع مزيج بين اللهجة العربية واللهجة الجزائرية.';
             break;
         case 'telegram':
             userContext = 'Create content suitable for Telegram channels and groups, focusing on clear formatting and effective use of message features mix between the arabic and the algerian accent.';
             break;
         case 'facebook':
-            userContext = 'Create content optimized for Facebook with focus on engagement and shareability. Consider using mixed media and interactive elements mix between the arabic and the algerian accent.';
+            userContext = 'قم بإنشاء محتوى مناسب لقنوات ومجموعات تليجرام، مع التركيز على تنسيق واضح واستخدام فعّال لميزات الرسائل، بمزيج بين اللهجة العربية واللهجة الجزائرية.';
             break;
         case 'linkedin':
-            userContext = 'Create professional content suitable for LinkedIn, focusing on business value and industry insights. Use formal tone and professional formatting in french.';
+            userContext = 'Créez un contenu professionnel adapté à LinkedIn, en mettant l'accent sur la valeur commerciale et les analyses sectorielles. Utilisez un ton formel et un formatage professionnel en français.';
             break;
         case 'email':
-            userContext = 'Create email-optimized content with clear subject lines, proper formatting, and compelling call-to-actions. Focus on professional communication in french.';
+            userContext = 'Créez un contenu optimisé pour les e-mails avec des lignes d'objet claires, un formatage approprié et des appels à l'action convaincants. Concentrez-vous sur une communication professionnelle en français.';
             break;
         default:
             userContext = '';
