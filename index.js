@@ -57,7 +57,7 @@ function setupEventListeners() {
 
     sendButton?.addEventListener('click', handleSendMessage);
     userInput?.addEventListener('keypress', handleKeyPress);
-    infoButton?.addEventListener('click', showInfo);
+    // infoButton?.addEventListener('click', showInfo);
 
     // Prevent form submission on Enter if textarea is empty
     userInput?.addEventListener('keydown', (e) => {
