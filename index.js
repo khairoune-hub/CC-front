@@ -1,5 +1,14 @@
 // Initialize markdown-it
 const md = window.markdownit();
+window.onerror = function (message, source, lineno, colno, error) {
+  if (source.includes("intervention.79610309.js")) {
+    // Skip the error from this specific script
+    console.warn("Skipped error from:", source);
+    return true; // Prevents the error from being logged in the console
+  }
+  return false; // Let other errors be logged as normal
+};
+
 
 // Global variables
 let threadId = null;
