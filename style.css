@@ -88,26 +88,43 @@ body {
     border-radius: 20px;
     animation: fadeIn 0.3s ease-in;
     word-wrap: break-word;
-    display: inline-block;
     white-space: pre-wrap;
     transition: all 0.3s ease;
     width: fit-content;
 }
+
 .user-message {
     background: rgba(54, 162, 235, 0.8);
-    margin-left: auto;
+    margin-left: auto !important;
     padding: auto;
     white-space: pre-line;
     border-radius: 20px 20px 0 20px;
-    align-self: flex-end;
+    align-self: flex-end !important;
+    float: right;
+    text-align: left; /* Default alignment for English */
 }
+
+.user-message[dir="rtl"] {
+    text-align: right; /* Right alignment for Arabic */
+}
+
 .bot-message {
     background: #91be3f;
-    /* white-space: pre-line; */
+    white-space: pre-line;
     border-radius: 20px 20px 20px 0;
-    /* margin-right: auto; */
+    margin-right: auto;
     align-self: flex-start;
+    float: left;
 }
+
+.bot-message[dir="rtl"] {
+    text-align: right;
+}
+
+.bot-message[dir="ltr"] {
+    text-align: left;
+}
+
 .input-area {
     display: flex;
     padding: 1rem;
@@ -222,15 +239,6 @@ th, td {
     padding: 8px;
     text-align: left; /* Optional: Adjust alignment as needed */
 }
-.bot-message[dir="rtl"] {
-    direction: rtl;
-    text-align: left;
-}
-.bot-message[dir="ltr"] {
-    direction: ltr;
-    text-align: left;
-}
-
 
 .platform-sidebar {
     position: fixed;
