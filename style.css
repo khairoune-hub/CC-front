@@ -47,11 +47,11 @@ body {
 .info-button:hover {
     color: #253b74;
 }                   
-.chat-container {
+   .chat-container {
     width: 100%; /* Set the desired width */
     height: 400px;
     max-width: 1000px;
-    margin: 0.5rem auto;
+    margin: 2rem auto;
     background: #253b74;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.582);
@@ -75,13 +75,8 @@ body {
     padding: 1.2rem;
     overflow-y: auto;
     background: rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    /* width: fit-content; */
 }
 .message {
-    display: inline-block;          
     padding: 15px;
     margin: 10px 0;
     max-width: 80%;
@@ -89,42 +84,22 @@ body {
     animation: fadeIn 0.3s ease-in;
     word-wrap: break-word;
     white-space: pre-wrap;
+    /* direction: rtl; */
     transition: all 0.3s ease;
-    width: fit-content;
 }
-
 .user-message {
     background: rgba(54, 162, 235, 0.8);
-    margin-left: auto !important;
+    margin-left: auto;
     padding: auto;
     white-space: pre-line;
     border-radius: 20px 20px 0 20px;
-    align-self: flex-end !important;
-    float: right;
-    text-align: left; /* Default alignment for English */
 }
-
-.user-message[dir="rtl"] {
-    text-align: right; /* Right alignment for Arabic */
-}
-
 .bot-message {
     background: #91be3f;
     white-space: pre-line;
     border-radius: 20px 20px 20px 0;
     margin-right: auto;
-    align-self: flex-start;
-    float: left;
 }
-
-.bot-message[dir="rtl"] {
-    text-align: right;
-}
-
-.bot-message[dir="ltr"] {
-    text-align: left;
-}
-
 .input-area {
     display: flex;
     padding: 1rem;
@@ -219,26 +194,36 @@ body {
     100% { transform: rotate(360deg); }
 }
 .chat-container ul {
+    /* list-style-type: disc;  */
     list-style-position: inside;
-}
-
-.chat-container li {
+    /* padding-left: 0;  */
+  }
+  
+  .chat-container li {
     margin-bottom: 10px;
     padding-left: 20px; 
-}
-table {
+  }
+  table {
     border-collapse: collapse;
     width: 100%; /* Optional: Adjust width as needed */
-}
-
-table, th, td {
+  }
+  
+  table, th, td {
     border: 1px solid black; /* Defines the grid lines */
-}
-
-th, td {
+  }
+  
+  th, td {
     padding: 8px;
     text-align: left; /* Optional: Adjust alignment as needed */
+  }
+ .bot-message[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
 }
+.bot-message[dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+  }
 
 .platform-sidebar {
     position: fixed;
