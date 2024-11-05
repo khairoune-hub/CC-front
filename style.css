@@ -86,6 +86,7 @@ body {
     white-space: pre-wrap;
     /* direction: rtl; */
     transition: all 0.3s ease;
+    width: fit-content;
 }
 .user-message {
     background: rgba(54, 162, 235, 0.8);
@@ -93,6 +94,7 @@ body {
     padding: auto;
     white-space: pre-line;
     border-radius: 20px 20px 0 20px;
+    width: fit-content;
 }
 .bot-message {
     background: #91be3f;
