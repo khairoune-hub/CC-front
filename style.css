@@ -81,29 +81,32 @@ body {
     /* width: fit-content; */
 }
 .message {
-  padding: 15px;
-        margin: 10px 0;
-        max-width: 80%;
-        border-radius: 20px;
-        animation: fadeIn 0.3s ease-in;
-        word-wrap: break-word;
-        white-space: pre-wrap;
-        /* direction: rtl; */
-        transition: all 0.3s ease;
+    display: inline-block;          
+    padding: 15px;
+    margin: 10px 0;
+    max-width: 80%;
+    border-radius: 20px;
+    animation: fadeIn 0.3s ease-in;
+    word-wrap: break-word;
+    display: inline-block;
+    white-space: pre-wrap;
+    transition: all 0.3s ease;
     width: fit-content;
 }
 .user-message {
-     background: rgba(54, 162, 235, 0.8);
-        margin-left: auto;
-        padding: auto;
-        white-space: pre-line;
-        border-radius: 20px 20px 0 20px;
+    background: rgba(54, 162, 235, 0.8);
+    margin-left: auto;
+    padding: auto;
+    white-space: pre-line;
+    border-radius: 20px 20px 0 20px;
+    align-self: flex-end;
 }
 .bot-message {
-     background: #91be3f;
-        white-space: pre-line;
-        border-radius: 20px 20px 20px 0;
-        margin-right: auto;
+    background: #91be3f;
+    /* white-space: pre-line; */
+    border-radius: 20px 20px 20px 0;
+    /* margin-right: auto; */
+    align-self: flex-start;
 }
 .input-area {
     display: flex;
@@ -221,7 +224,7 @@ th, td {
 }
 .bot-message[dir="rtl"] {
     direction: rtl;
-    text-align: right;
+    text-align: left;
 }
 .bot-message[dir="ltr"] {
     direction: ltr;
@@ -430,12 +433,12 @@ th, td {
         /* margin-right: auto; */
         align-self: flex-start;
     }
-/*     .user-message {
+    .user-message {
         background: rgba(54, 162, 235, 0.8);
         margin-left: auto;
         padding: auto;
         white-space: pre-line;
-        border-radius: 20px 20px 0 20px; */
-        align-self: right;
+        border-radius: 20px 20px 0 20px;
+        align-self: flex-end;
     }
     }
