@@ -433,12 +433,12 @@ th, td {
         /* margin-right: auto; */
         align-self: flex-start;
     }
-    .user-message {
+/*     .user-message {
         background: rgba(54, 162, 235, 0.8);
         margin-left: auto;
         padding: auto;
         white-space: pre-line;
-        border-radius: 20px 20px 0 20px;
-        align-self: flex-end;
+        border-radius: 20px 20px 0 20px; */
+        align-self: right;
     }
     }
