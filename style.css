@@ -81,32 +81,29 @@ body {
     /* width: fit-content; */
 }
 .message {
-    display: inline-block;          
-    padding: 15px;
-    margin: 10px 0;
-    max-width: 80%;
-    border-radius: 20px;
-    animation: fadeIn 0.3s ease-in;
-    word-wrap: break-word;
-    display: inline-block;
-    white-space: pre-wrap;
-    transition: all 0.3s ease;
+  padding: 15px;
+        margin: 10px 0;
+        max-width: 80%;
+        border-radius: 20px;
+        animation: fadeIn 0.3s ease-in;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        /* direction: rtl; */
+        transition: all 0.3s ease;
     width: fit-content;
 }
 .user-message {
-    background: rgba(54, 162, 235, 0.8);
-    margin-left: auto;
-    padding: auto;
-    white-space: pre-line;
-    border-radius: 20px 20px 0 20px;
-    align-self: flex-end;
+     background: rgba(54, 162, 235, 0.8);
+        margin-left: auto;
+        padding: auto;
+        white-space: pre-line;
+        border-radius: 20px 20px 0 20px;
 }
 .bot-message {
-    background: #91be3f;
-    /* white-space: pre-line; */
-    border-radius: 20px 20px 20px 0;
-    /* margin-right: auto; */
-    align-self: flex-start;
+     background: #91be3f;
+        white-space: pre-line;
+        border-radius: 20px 20px 20px 0;
+        margin-right: auto;
 }
 .input-area {
     display: flex;
