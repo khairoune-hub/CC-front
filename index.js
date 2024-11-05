@@ -28,11 +28,28 @@ function selectPlatform(platform) {
 }
 
 function updateUserContext() {
-    if (selectedPlatform) {
-        userContext = `The user wants to generate the content for ${selectedPlatform},talk in arabic.`;    
-        console.log(userContext); // Log to console
+    switch(selectedPlatform) {
+        case 'instagram':
+            userContext = 'Create content optimized for Instagram with emphasis on visual appeal and engagement. Consider using relevant hashtags and keeping captions concise yet engaging mix between the arabic and the algerian accent.';
+            break;
+        case 'telegram':
+            userContext = 'Create content suitable for Telegram channels and groups, focusing on clear formatting and effective use of message features mix between the arabic and the algerian accent.';
+            break;
+        case 'facebook':
+            userContext = 'Create content optimized for Facebook with focus on engagement and shareability. Consider using mixed media and interactive elements mix between the arabic and the algerian accent.';
+            break;
+        case 'linkedin':
+            userContext = 'Create professional content suitable for LinkedIn, focusing on business value and industry insights. Use formal tone and professional formatting in french.';
+            break;
+        case 'email':
+            userContext = 'Create email-optimized content with clear subject lines, proper formatting, and compelling call-to-actions. Focus on professional communication in french.';
+            break;
+        default:
+            userContext = '';
     }
-}
+    console.log(userContext)
+    }
+
 
 window.addEventListener('load', () => {
     const spinner = document.getElementById('spinner');
