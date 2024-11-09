@@ -294,6 +294,24 @@ body {
     color: white;
     border: 2px solid #253b74;
 }
+/* p, ul, li, h3, h4 {
+    margin: 0;
+    padding: 0;
+} */
+/* p, ul, li, h3, h4 {
+    margin:0; 
+    padding: 0;
+} */
+p, ul {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 5px;
+    padding: 0;
+    /* Adjust spacing as needed */
+}
+
+
+
 
 @media (max-width: 768px) {
     body {
