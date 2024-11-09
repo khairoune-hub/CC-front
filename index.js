@@ -33,7 +33,7 @@ function updateUserContext() {
             userContext = "قم بإنشاء محتوى مُحسّن لمنصة إنستغرام مع التركيز على الجاذبية البصرية والتفاعل. يُفضّل استخدام الهاشتاغات المناسبة والحفاظ على العبارات مختصرة لكنها جذابة، مع مزيج بين اللهجة العربية واللهجة الجزائرية.";
             break;
         case 'telegram':
-            userContext = "Create content suitable for Telegram channels and groups, focusing on clear formatting and effective use of message features mix between the arabic and the algerian accent.";
+            userContext = "إنشاء محتوى مناسب لقنوات ومجموعات تيليجرام، يركز على تنسيق واضح واستخدام فعال لخصائص الرسائل بطريقة تخلط بين اللغة العربية واللهجة الجزائرية.";
             break;
         case 'facebook':
             userContext = "قم بإنشاء محتوى مناسب لقنوات ومجموعات تليجرام، مع التركيز على تنسيق واضح واستخدام فعّال لميزات الرسائل، بمزيج بين اللهجة العربية واللهجة الجزائرية.";
