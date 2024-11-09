@@ -39,10 +39,10 @@ function updateUserContext() {
             userContext = "قم بإنشاء محتوى مناسب لقنوات ومجموعات تليجرام، مع التركيز على تنسيق واضح واستخدام فعّال لميزات الرسائل، بمزيج بين اللهجة العربية واللهجة الجزائرية.";
             break;
         case 'linkedin':
-            userContext = "Créez un contenu professionnel adapté à LinkedIn, en mettant l'accent sur la valeur commerciale et les analyses sectorielles. Utilisez un ton formel et un formatage professionnel en français.";
+            userContext = "Créez un contenu professionnel adapté à LinkedIn, Utilisez un ton formel et un formatage professionnel en français.";
             break;
         case 'email':
-            userContext ="Créez un contenu optimisé pour les e-mails avec des lignes d'objet claires, un formatage approprié et des appels à l'action convaincants. Utilisez un ton formel et un formatage professionnel, en français.";
+            userContext ="Créez un contenu optimisé pour les e-mails Utilisez un ton formel et un formatage professionnel en français.";
             break;
         default:
             userContext = '';
