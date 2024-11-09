@@ -193,9 +193,9 @@ async function sendMessage() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
-                message, 
+                context: userContext, 
                 threadId,
-                context: userContext // Add context to the request
+                message   // Add context to the request
             })
         });
 
