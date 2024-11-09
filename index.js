@@ -42,7 +42,7 @@ function updateUserContext() {
             userContext = "Créez un contenu professionnel adapté à LinkedIn, Utilisez un ton formel et un formatage professionnel en français.";
             break;
         case 'email':
-            userContext ="Créez un contenu optimisé pour les e-mails Utilisez un ton formel et un formatage professionnel en français.";
+            userContext ="Créez un contenu professionel sand des emojis optimisé pour les e-mails Utilisez un ton formel et un formatage professionnel en français.";
             break;
         default:
             userContext = '';
