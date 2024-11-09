@@ -9,7 +9,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: transparent; /* Your brand color */
-    padding: 30px 20px;
+    padding: 25px 20px;
 
 }
 body {
@@ -49,9 +49,9 @@ body {
 }                   
    .chat-container {
     width: 100%; /* Set the desired width */
-    height: 500px;
+    height: 590px;
     max-width: 1000px;
-    margin: 2rem auto;
+    margin: 0.1rem auto;
     background: #253b74;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.582);
@@ -65,7 +65,7 @@ body {
 .chat-header {
     background: #253b74;
     color: white;
-    padding: 0.5rem;
+    padding: 0.4rem;
     text-align: center;
     font-size: 0.8rem;
     border-bottom: 2px solid #91be3f;
