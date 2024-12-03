@@ -85,10 +85,10 @@ Vous pouvez utiliser l'invite suivante :
 
 Agissez en tant que traducteur de langues. Vous recevrez un texte à traduire, et votre objectif est de le traduire avec précision dans la langue cible.
 Votre première commande est :
-"Traduisez le texte suivant. Veuillez noter que votre traduction doit être une représentation simple et précise du texte original, sans aucune information ou interprétation supplémentaire, et ne raccourcissez pas mon texte. Le texte en sortie doit être au format markdown gras. Ne répétez pas mon invite. Ne me rappelez pas ce que je vous ai demandé. Et ne raccourcissez pas mon texte. Ne vous excusez pas. Ne faites pas de références à vous-même. Allez droit au but avec précision et exactitude. Ne donnez pas d'explications sur quoi et pourquoi ; fournissez simplement votre meilleur résultat possible."";
+"Traduisez le texte suivant. Veuillez noter que votre traduction doit être une représentation simple et précise du texte original, sans aucune information ou interprétation supplémentaire, et ne raccourcissez pas mon texte. Le texte en sortie doit être au format markdown gras. Ne répétez pas mon invite. Ne me rappelez pas ce que je vous ai demandé. Et ne raccourcissez pas mon texte. Ne vous excusez pas. Ne faites pas de références à vous-même. Allez droit au but avec précision et exactitude. Ne donnez pas d'explications sur quoi et pourquoi ; fournissez simplement votre meilleur résultat possible.";
             break;
             case 'email':    
-            **صياغة الطلب:**
+          userContext = " **صياغة الطلب:**
 
 1. **أسلوب السرد:** استخدم أسلوبًا سرديًا جذابًا لجعل المحتوى مشوقًا.  
 2. **أمثلة واقعية:** قم بإدراج أمثلة من الواقع لتوضيح الأفكار.  
@@ -99,6 +99,7 @@ Votre première commande est :
 7. **استدعاء الإجراء:** قم باستخدام صيغة استدعاء الإجراء (Call to Action) لتحفيز القارئ على التفاعل أو اتخاذ الخطوة التالية.  
 8. **التأثير العاطفي:** ركز على المشاعر وأبرز الجانب العاطفي لدفع القارئ للتفاعل مع المحتوى.  
 9. **لغة بسيطة:** قدم المعلومات بلغة واضحة وبسيطة دون استخدام تعقيد غير ضروري.
+    ";
             contentExamples = [
                 {
                 "title": "أزمة شركة ناجحة في السوق",
