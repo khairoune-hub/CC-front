@@ -34,7 +34,7 @@ function updateUserContext() {
             contentExamples =""
             break;
         case 'telegram':
-            userContext = "إنشاء محتوى مناسب لقنوات ومجموعات تيليجرام، يركز على تنسيق واضح واستخدام فعال لخصائص الرسائل بطريقة تخلط بين اللغة العربية واللهجة الجزائرية. خصائص النص: أسلوب سردي يجعل المحتوى جذابًا وتفاعليًا، استخدام العناوين الفرعية والرموز لتنظيم المحتوى، تقسيم الفقرات لجعل القراءة مريحة، تدرج هرمي للعناوين الفرعية لعرض الموضوعات بشكل منطقي، استخدام القليل من الرموز التعبيرية (emojis) لتعزيز الفهم.";
+            userContext = "إنشاء محتوى مناسب لقنوات ومجموعات تيليجرام، يركز على تنسيق واضح واستخدام فعال لخصائص الرسائل بطريقة تخلط بين اللغة العربية واللهجة الجزائرية. خصائص النص: أسلوب سردي يجعل المحتوى جذابًا وتفاعليًا، استخدام العناوين الفرعية والرموز لتنظيم المحتوى وابتداء كل نقطة ب رمز لرقم، تقسيم الفقرات لجعل القراءة مريحة، تدرج هرمي للعناوين الفرعية لعرض الموضوعات بشكل منطقي، استخدام القليل من الرموز التعبيرية (emojis) لتعزيز الفهم.";
             contentExamples = [
                 {
                   title: "أزمة تسلا المالية عام 2008",
@@ -78,14 +78,27 @@ function updateUserContext() {
             break;
         case 'facebook':
             userContext = "قم بإنشاء محتوى مناسب لقنوات ومجموعات تليجرام، مع التركيز على تنسيق واضح واستخدام فعّال لميزات الرسائل، بمزيج بين اللهجة العربية واللهجة الجزائرية.";
-            contentExamples =""
             break;
         case 'linkedin':
-            contentExamples =""
+             userContext = "Traduire tout texte qui vous est fourni en français avec une traduction correcte et professionnelle, sans être littérale.
+Vous pouvez utiliser l'invite suivante :
+
+Agissez en tant que traducteur de langues. Vous recevrez un texte à traduire, et votre objectif est de le traduire avec précision dans la langue cible.
+Votre première commande est :
+"Traduisez le texte suivant. Veuillez noter que votre traduction doit être une représentation simple et précise du texte original, sans aucune information ou interprétation supplémentaire, et ne raccourcissez pas mon texte. Le texte en sortie doit être au format markdown gras. Ne répétez pas mon invite. Ne me rappelez pas ce que je vous ai demandé. Et ne raccourcissez pas mon texte. Ne vous excusez pas. Ne faites pas de références à vous-même. Allez droit au but avec précision et exactitude. Ne donnez pas d'explications sur quoi et pourquoi ; fournissez simplement votre meilleur résultat possible."";
             break;
             case 'email':    
-            userContext = "Créez un contenu optimisé pour les e-mails avec des lignes d'objet claires, un formatage approprié et des appels à l'action convaincants. Utilisez un ton formel et un formatage professionnel en français.";
-            userContext = "Créez un contenu professionnel adapté à LinkedIn, en mettant l'accent sur la valeur commerciale et les analyses sectorielles. Utilisez un ton formel et un formatage professionnel en français.";
+            **صياغة الطلب:**
+
+1. **أسلوب السرد:** استخدم أسلوبًا سرديًا جذابًا لجعل المحتوى مشوقًا.  
+2. **أمثلة واقعية:** قم بإدراج أمثلة من الواقع لتوضيح الأفكار.  
+3. **تنظيم النص:** قم بتنظيم المحتوى باستخدام العناوين والفقرات ليسهل قراءته.  
+4. **تدرج الأفكار:** رتب الأفكار في نصك بشكل هرمي ومترابط.  
+5. **أسلوب المخاطبة:** استخدم صيغة المخاطب لإشراك القارئ وإبقائه متفاعلًا.  
+6. **نصائح عملية:** قدم نصائح قابلة للتطبيق أو خطوات عملية يمكن للقارئ تنفيذها.  
+7. **استدعاء الإجراء:** قم باستخدام صيغة استدعاء الإجراء (Call to Action) لتحفيز القارئ على التفاعل أو اتخاذ الخطوة التالية.  
+8. **التأثير العاطفي:** ركز على المشاعر وأبرز الجانب العاطفي لدفع القارئ للتفاعل مع المحتوى.  
+9. **لغة بسيطة:** قدم المعلومات بلغة واضحة وبسيطة دون استخدام تعقيد غير ضروري.
             contentExamples = [
                 {
                 "title": "أزمة شركة ناجحة في السوق",
