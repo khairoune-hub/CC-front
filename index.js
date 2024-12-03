@@ -37,7 +37,11 @@ function updateUserContext() {
             contentExamples = ""; // Added missing semicolon
             break;
         case 'telegram':
-            userContext = "أسلوب السرد: استخدم أسلوبًا سرديًا جذابًا لجعل المحتوى مشوقًا، أمثلة واقعية: قم بإدراج أمثلة من الواقع لتوضيح الأفكار، تنظيم النص: قم بتنظيم المحتوى باستخدام العناوين والفقرات ليسهل قراءته، تدرج الأفكار: رتب الأفكار في نصك بشكل هرمي ومترابط، أسلوب المخاطبة: استخدم صيغة المخاطب لإشراك القارئ وإبقائه متفاعلًا، نصائح عملية: قدم نصائح قابلة للتطبيق أو خطوات عملية يمكن للقارئ تنفيذها، استدعاء الإجراء: قم باستخدام صيغة استدعاء الإجراء (Call to Action) لتحفيز القارئ على التفاعل أو اتخاذ الخطوة التالية، التأثير العاطفي: ركز على المشاعر وأبرز الجانب العاطفي لدفع القارئ للتفاعل مع المحتوى، لغة بسيطة: قدم المعلومات بلغة واضحة وبسيطة دون استخدام تعقيد غير ضروري.";
+          userContext = "أسلوب سردي يجعل المحتوى جذابًا وتفاعليًا
+                    استخدام العناوين الفرعية والرموز لتنظيم المحتوى
+                    تقسيم الفقرات لجعل القراءة مريحة وبداية كل نقطة برمز تعبيري للأعداد
+                    تدرج هرمي للعناوين الفرعية لعرض الموضوعات بشكل منطقي
+                    استخدام القليل من emojis لتعزيز الفهم ";
             contentExamples = [
                 {
                     title: "أزمة تسلا المالية عام 2008",
@@ -57,7 +61,7 @@ function updateUserContext() {
             userContext = "Traduisez le texte suivant. Veuillez noter que votre traduction doit être une représentation simple et précise du texte original, sans aucune information ou interprétation supplémentaire, et ne raccourcissez pas mon texte. Le texte en sortie doit être au format markdown gras. Ne répétez pas mon invite. Ne me rappelez pas ce que je vous ai demandé. Et ne raccourcissez pas mon texte. Ne vous excusez pas. Ne faites pas de références à vous-même. Allez droit au but avec précision et exactitude. Ne donnez pas d'explications sur quoi et pourquoi ; fournissez simplement votre meilleur résultat possible.";
             break;
         case 'email':
-            userContext = " **صياغة الطلب:**";
+            userContext = "أسلوب السرد: استخدم أسلوبًا سرديًا جذابًا لجعل المحتوى مشوقًا، أمثلة واقعية: قم بإدراج أمثلة من الواقع لتوضيح الأفكار، تنظيم النص: قم بتنظيم المحتوى باستخدام العناوين والفقرات ليسهل قراءته، تدرج الأفكار: رتب الأفكار في نصك بشكل هرمي ومترابط، أسلوب المخاطبة: استخدم صيغة المخاطب لإشراك القارئ وإبقائه متفاعلًا، نصائح عملية: قدم نصائح قابلة للتطبيق أو خطوات عملية يمكن للقارئ تنفيذها، استدعاء الإجراء: قم باستخدام صيغة استدعاء الإجراء (Call to Action) لتحفيز القارئ على التفاعل أو اتخاذ الخطوة التالية، التأثير العاطفي: ركز على المشاعر وأبرز الجانب العاطفي لدفع القارئ للتفاعل مع المحتوى، لغة بسيطة: قدم المعلومات بلغة واضحة وبسيطة دون استخدام تعقيد غير ضروري.";
             contentExamples = [
                 {
                     title: "إدارة التدفق النقدي",
