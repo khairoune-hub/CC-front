@@ -108,11 +108,7 @@ function handleKeyPress(e) {
 
 // Handle send message button click
 function handleSendMessage() {
-    
-    if (!selectedPlatform) {
-        alert('Please select a platform before sending a message.');
-        return; // Stop further execution
-    }
+
     const userInput = document.getElementById('user-input');
     if (!userInput) return;
 
