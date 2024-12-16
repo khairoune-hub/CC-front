@@ -20,16 +20,14 @@ body {
     flex-direction: column;
 }
 .logo {
-    display: flex;
-    align-items: center;
-    width: 100px;
+    position: fixed;
+    top: 20px;
+    left: 40px;  /* Center within sidebar */
+    width: 120px;
     height: auto;
-    margin-top: -17px;
-    left: 2%;
-    position: absolute;
-    filter: drop-shadow(5px 5px 10px rgba(97, 96, 96, 0.5));  
+    z-index: 101; /* Keep logo above sidebar */
+    filter: drop-shadow(5px 5px 10px rgba(97, 96, 96, 0.5));
     background-color: transparent;
-
 }
 .info-button {
     right: 3%;
@@ -60,7 +58,7 @@ body {
     overflow-y: auto;
     flex-grow: 1;
     transition: all 0.3s ease;  
-    
+    margin-left: 17rem;
 }
 .chat-header {
     background: #253b74;
@@ -226,50 +224,56 @@ body {
     direction: ltr;
     text-align: left;
   }
-
-.platform-sidebar {
+  .platform-sidebar {
     position: fixed;
-    left: -200px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 0;
+    top: 0;
+    height: 100vh;
     width: 200px;
     background: #253b74;
-    border-radius: 0 20px 20px 0;
-    transition: left 0.3s ease;
-    padding: 20px 0;
+    padding: 100px 0 20px 0; /* Added top padding to account for navbar */
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 100;
 }
 
+/* Remove hover state and trigger since sidebar will be fixed */
 .platform-sidebar:hover {
     left: 0;
 }
 
 .platform-trigger {
-    position: absolute;
-    right: -40px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #253b74;
-    color: #91be3f;
-    padding: 10px;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-}
-
-.platform-trigger::after {
-    content: "⋮";
-    font-size: 24px;
-    display: block;
-    transform: rotate(90deg);
+    display: none; /* Remove the trigger */
 }
 
 .platform-options {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 0 20px;
+    height: 100%;
+}
+
+.platform-option {
+    background: transparent;
+    color: white;
+    border: 2px solid #91be3f;
+    padding: 12px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+}
+
+.platform-option:hover {
+    background: #91be3f;
+}
+
+.platform-option.selected {
+    background: #91be3f;
+    color: white;
+    border: 2px solid #253b74;
 }
 
 .platform-option {
