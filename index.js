@@ -8,23 +8,35 @@ let selectedPlatform = null;
 let userContext = ''; // Declare userContext as a variable
 
 function selectPlatform(platform) {
+    // Check if the platform is already selected
+    const selectedBtn = document.querySelector(`.platform-option[onclick*="${platform}"]`);
+    const isCurrentlySelected = selectedBtn?.classList.contains('selected');
+
     // Remove selected class from all buttons
     document.querySelectorAll('.platform-option').forEach(btn => {
         btn.classList.remove('selected');
     });
 
-    // Add selected class to clicked button
-    const selectedBtn = document.querySelector(`.platform-option[onclick*="${platform}"]`);
-    if (selectedBtn) {
-        selectedBtn.classList.add('selected');
+    // If the clicked platform was already selected, deselect it
+    if (isCurrentlySelected) {
+        // Reset the selectedPlatform to null
+        selectedPlatform = null;
+        // Reset the user context to empty
+        userContext = '';
+        console.log('Platform deselected. Context cleared.');
+    } else {
+        // Add selected class to clicked button
+        if (selectedBtn) {
+            selectedBtn.classList.add('selected');
+        }
+
+        // Update the selectedPlatform variable
+        selectedPlatform = platform;
+        console.log('Selected platform:', selectedPlatform);
+
+        // Update user context
+        updateUserContext();
     }
-
-    // Update the selectedPlatform variable
-    selectedPlatform = platform;
-    console.log('Selected platform:', selectedPlatform);
-
-    // Update user context
-    updateUserContext();
 }
 
 
