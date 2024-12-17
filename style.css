@@ -11,7 +11,7 @@
     left: 200px; /* Match sidebar width */
     width: calc(100% - 200px); /* Full width minus sidebar */
     height: 60px; /* Navbar height */
-    background: rgb(213, 213, 213);
+    background: rgb(225, 225, 225);
     display: flex;
     align-items: center;
     justify-content: center; /* Center title */
@@ -28,7 +28,7 @@
 }
 body {
     font-family: 'Cairo', sans-serif;
-    background: rgb(212, 212, 212); /* Grey Gradient */
+    background: rgb(255, 255, 255); /* Grey Gradient */
     height: 100vh; /* Ensure the body height is the full viewport */
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@ body {
 }
 .user-message {
     padding: 20px;
-    background: rgb(193, 192, 192);
+    background: rgb(225, 225, 225);
     margin-left: auto;
     padding: auto;
     white-space: pre-line;
@@ -102,7 +102,7 @@ body {
 }
 .standard {
     padding: 20px;
- background: rgb(193, 192, 192);
+ background: rgb(225, 225, 225);
  white-space: pre-line;
  border-radius: 20px 20px 20px 0;
  margin-right: auto;
@@ -115,19 +115,18 @@ body {
 }
 
 #chat-messages::-webkit-scrollbar-track {
-    background: rgba(37, 59, 116, 0.2);
+    background: rgb(225, 225, 225);
     border-radius: 5px;
     margin: 1rem 0; /* Add some spacing top and bottom */
 }
 
 #chat-messages::-webkit-scrollbar-thumb {
-    background: rgba(37, 59, 116, 0.95);
+    background: rgb(225, 225, 225);
     border-radius: 5px;
-    border: 2px solid rgb(48, 48, 48);
 }
 
 #chat-messages::-webkit-scrollbar-thumb:hover {
-    background: rgba(54, 162, 235, 0.8);
+    background: rgb(187, 187, 187);
 }
 
 #chat-messages {
@@ -161,7 +160,7 @@ body {
     bottom: 20px; /* Spacing from the bottom */
     left: calc(100px + 50%); /* Start from the sidebar edge and center in remaining space */
     transform: translateX(-50%); /* Adjust to center */
-    background: rgba(37, 59, 116, 0.95); /* Semi-transparent background */
+    background: rgb(225, 225, 225); /* Semi-transparent background */
     width: calc(100% - 240px); /* Total site width minus sidebar and padding */
     max-width: 800px; /* Match chat messages width */
     padding: 1rem;
