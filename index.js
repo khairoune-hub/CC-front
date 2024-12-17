@@ -303,3 +303,34 @@ function cleanup() {
 
 // Handle window unload
 window.addEventListener('unload', cleanup);
+document.addEventListener('input', function (e) {
+    if (e.target.tagName.toLowerCase() === 'textarea') {
+        e.target.style.height = 'auto'; // Reset height
+        e.target.style.height = `${e.target.scrollHeight}px`; // Adjust height
+    }
+});
+
+document.addEventListener('keydown', function (e) {
+    if (e.target.tagName.toLowerCase() === 'textarea') {
+        const textArea = e.target;
+
+        if (e.key === 'Enter') {
+            if (e.shiftKey) {
+                // Shift+Enter: Add a new line
+                return;
+            }
+
+            e.preventDefault(); // Prevent default behavior (new line)
+
+            if (textArea.value.trim()) {
+                // Send the message if there's content
+                sendMessage(textArea.value.trim());
+                textArea.value = ''; // Clear the textarea
+                textArea.style.height = '50px'; // Reset to minimum height
+            } else {
+                // Reset height if content is empty
+                textArea.style.height = '50px';
+            }
+        }
+    }
+});
