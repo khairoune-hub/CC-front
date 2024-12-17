@@ -248,7 +248,7 @@ body {
 .typing-indicator {
     display: none;
     padding: 0.5rem 1rem;
-    background: #253b74;
+    background: rgb(225, 225, 225);
     border-radius: 20px;
     width: fit-content;
     margin-bottom: 1rem;
