@@ -11,7 +11,7 @@
     left: 200px; /* Match sidebar width */
     width: calc(100% - 200px); /* Full width minus sidebar */
     height: 60px; /* Navbar height */
-    background: rgb(48, 48, 48);
+    background: rgb(213, 213, 213);
     display: flex;
     align-items: center;
     justify-content: center; /* Center title */
@@ -28,7 +28,7 @@
 }
 body {
     font-family: 'Cairo', sans-serif;
-    background: rgb(48, 48, 48); /* Grey Gradient */
+    background: rgb(212, 212, 212); /* Grey Gradient */
     height: 100vh; /* Ensure the body height is the full viewport */
     display: flex;
     flex-direction: column;
@@ -54,21 +54,14 @@ body {
     font-size: 35px;
     font-weight:bolder ;
     background-color: transparent;
-    color: #91be3f;
+    color: black;
     border: none;
 }
 .info-button:hover {
     color: #253b74;
 }                   
 
-.chat-header {
-    background: #253b74;
-    color: white;
-    padding: 0.4rem;
-    text-align: center;
-    font-size: 0.8rem;
-    border-bottom: 2px solid #91be3f;
-}
+
 .chat-messages {
     width: 100%; /* Full width relative to container */
     max-width: 800px; /* Limit the width for readability */
@@ -81,7 +74,7 @@ body {
     height: 73%; /* Take up 80% of the remaining container height */
 }
 .message {
-    padding: 20px;
+  
     margin: 10px 0;
     max-width: 80%;
     border-radius: 20px;
@@ -93,7 +86,8 @@ body {
     width: fit-content;
 }
 .user-message {
-    background: rgba(54, 162, 235, 0.8);
+    padding: 20px;
+    background: rgb(193, 192, 192);
     margin-left: auto;
     padding: auto;
     white-space: pre-line;
@@ -101,30 +95,41 @@ body {
     width: fit-content;
 }
 .bot-message {
-    background: #91be3f;
+    /* background: rgb(193, 192, 192); */
     white-space: pre-line;
     border-radius: 20px 20px 20px 0;
     margin-right: auto;
 }
+.standard {
+    padding: 20px;
+ background: rgb(193, 192, 192);
+ white-space: pre-line;
+ border-radius: 20px 20px 20px 0;
+ margin-right: auto;
+}
 /* Scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
 #chat-messages::-webkit-scrollbar {
     width: 10px;
+    position: absolute;
+    right: 1;
 }
 
 #chat-messages::-webkit-scrollbar-track {
-    background: rgba(37, 59, 116, 0.2); /* Light blue background */
+    background: rgba(37, 59, 116, 0.2);
     border-radius: 5px;
+    margin: 1rem 0; /* Add some spacing top and bottom */
 }
 
 #chat-messages::-webkit-scrollbar-thumb {
-    background: rgba(37, 59, 116, 0.95); /* Match input area blue */
+    background: rgba(37, 59, 116, 0.95);
     border-radius: 5px;
-    border: 2px solid rgb(48, 48, 48); /* Border to match background */
+    border: 2px solid rgb(48, 48, 48);
 }
 
 #chat-messages::-webkit-scrollbar-thumb:hover {
-    background: rgba(54, 162, 235, 0.8); /* Match user message blue on hover */
+    background: rgba(54, 162, 235, 0.8);
 }
+
 #chat-messages {
     top: 60px; /* Height of navbar */
     position: fixed; /* Fix at the bottom */
@@ -144,7 +149,7 @@ body {
 
 .main-title {
     text-align: center;
-    color: #fff;
+    color: black;
     margin-bottom: 2rem;
     padding-top: 1rem;
 }
@@ -244,7 +249,7 @@ body {
 .typing-indicator {
     display: none;
     padding: 0.5rem 1rem;
-    background: #91be3f;
+    background: #253b74;
     border-radius: 20px;
     width: fit-content;
     margin-bottom: 1rem;
@@ -253,7 +258,7 @@ body {
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: #253b74;
+    background: #91be3f;
     border-radius: 50%;
     margin-right: 3px;
     animation: bounce 1s infinite;
