@@ -46,7 +46,7 @@ function updateUserContext() {
     switch (selectedPlatform) {
         case 'instagram':
             userContext = "قم بإنشاء محتوى مُحسّن لمنصة إنستغرام مع التركيز على الجاذبية البصرية والتفاعل. يُفضّل استخدام الهاشتاغات المناسبة والحفاظ على العبارات مختصرة لكنها جذابة، مع مزيج بين اللهجة العربية واللهجة الجزائرية.";
-            contentExamples = ""; // Added missing semicolon
+            contentExamples = ""; 
             break;
         case 'telegram':
           userContext = "أسلوب سردي يجعل المحتوى جذابًا وتفاعليًا، استخدام العناوين الفرعية والرموز لتنظيم المحتوى، تقسيم الفقرات لجعل القراءة مريحة وبداية كل نقطة برمز تعبيري للأعداد، تدرج هرمي للعناوين الفرعية لعرض الموضوعات بشكل منطقي، استخدام القليل من emojis لتعزيز الفهم.";
@@ -91,7 +91,11 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     initializeThread();
     setupEventListeners();
-});
+    loadThreads(); // Load initial threads
+    
+    // Refresh threads periodically
+    setInterval(loadThreads, 30000);
+  });
 
 // Set up all event listeners
 function setupEventListeners() {
@@ -138,7 +142,7 @@ function handleSendMessage() {
 // Initialize a new thread
 async function initializeThread() {
     try {
-        const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/new-thread', {
+        const response = await fetch('https://assistant-chatbot.moutchi2006.workers.dev/new-thread', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -214,17 +218,7 @@ async function sendMessage() {
     showTypingIndicator();
     
     try {
-// Make.com listener user message
-        await fetch("https://hook.eu2.make.com/mwi4rsqab7cfn4b5l39l4whi2hj7vhu3", {
-            method: "POST",
-            mode: 'no-cors',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(message)
-        });
-
-        const response = await fetch('https://openai-assistant-worker.moutchi2006.workers.dev/send-message', {
+      const response = await fetch('https://assistant-chatbot.moutchi2006.workers.dev/send-message', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
@@ -236,34 +230,21 @@ async function sendMessage() {
         })
        ;
         const data = await response.json();
-        try {
-// Make.com listener bot response
-        await fetch("https://hook.eu2.make.com/ys3sjhmoyvghouarbbuuw5lbo71uzpbo", {
-            method: "POST",
-            mode: 'no-cors',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-         }
-        catch (error) {
-
-            console.error('Error:', error);
-            addMessage('Sorry, I encountered an error. Please try again.', false);
-        }
         if (response.ok) {
             hideTypingIndicator();
             addMessage(data.message, false);
+            loadThreads(); // Refresh threads
         } else {
             throw new Error(data.error || 'Failed to get response');
         }
+        
     } catch (error) {
         
         console.error('Error:', error);
         hideTypingIndicator();
         addMessage('Sorry, I encountered an error. Please try again.', false);
     }
+    
     }
 
 // Show typing indicator
@@ -371,3 +352,59 @@ textArea.addEventListener('input', function () {
     this.style.height = 'auto'; // Reset height to auto to calculate the content height
     this.style.height = `${this.scrollHeight}px`; // Set height to match the content
 });
+
+//  threads list
+async function loadThreads() {
+    try {
+      const response = await fetch('https://assistant-chatbot.moutchi2006.workers.dev/get-threads');
+      const data = await response.json();
+      
+      const threadList = document.getElementById('thread-list');
+      threadList.innerHTML = '';
+      
+      data.results.forEach(thread => {
+        const threadItem = document.createElement('div');
+        threadItem.className = 'thread-item';
+        threadItem.innerHTML = `
+          <div class="thread-title">${thread.title || 'Untitled Chat'}</div>
+          <div class="thread-date">${new Date(thread.last_updated).toLocaleDateString()}</div>
+        `;
+        
+        threadItem.addEventListener('click', () => loadThreadHistory(thread.thread_id));
+        threadList.appendChild(threadItem);
+      });
+    } catch (error) {
+      console.error('Error loading threads:', error);
+    }
+  }
+  
+//   thread loadThreadHistory
+  async function loadThreadHistory(selectedThreadId) {
+    try {
+      const response = await fetch(`https://assistant-chatbot.moutchi2006.workers.dev/get-thread-history?threadId=${selectedThreadId}`);
+      const data = await response.json();
+      
+      // Clear current chat
+      const chatMessages = document.getElementById('chat-messages');
+      chatMessages.innerHTML = '';
+      
+      // Add typing indicator back
+      const typingIndicator = document.createElement('div');
+      typingIndicator.id = 'typing-indicator';
+      typingIndicator.className = 'typing-indicator';
+      typingIndicator.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+      chatMessages.appendChild(typingIndicator);
+      
+      // Display messages
+      data.messages.forEach(msg => {
+        addMessage(msg.content, msg.role === 'user');
+      });
+      
+      // Update current threadId
+      threadId = selectedThreadId;
+    } catch (error) {
+      console.error('Error loading thread history:', error);
+    }
+  }
+  
+
