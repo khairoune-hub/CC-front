@@ -80,7 +80,7 @@ function updateUserContext() {
 
 window.addEventListener('load', () => {
     const spinner = document.getElementById('spinner');
-    const minimumLoadingTime = 1000;
+    const minimumLoadingTime = 2000;
     
     setTimeout(() => {
         spinner.style.display = 'none';
